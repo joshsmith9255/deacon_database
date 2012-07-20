@@ -143,13 +143,13 @@ class DeaconTest < ActiveSupport::TestCase
 	end
 
 	# test the scope 'male'
-    should "shows that there are three male deacons"
-      assert_equal 3, Deacon.male.size
-      assert_equal ["Glazer", "Lessard", "Staltari"], Deacon.male.alphabetical.map{|s| s.last_name}
-    end
+  should "shows that there are three male deacons" do
+    assert_equal 3, Deacon.male.size
+    assert_equal ["Glazer", "Lessard", "Staltari"], Deacon.male.alphabetical.map{|s| s.last_name}
+  end
 
     # test the scope 'female'
-    should "shows that there is one female deacon"
+    should "shows that there is one female deacon" do
       assert_equal 1, Deacon.female.size
       assert_equal ["Seybert"], Deacon.female.alphabetical.map{|s| s.last_name}
     end

@@ -170,43 +170,43 @@ class ClientTest < ActiveSupport::TestCase
     end
     
     # test the scope 'receiving_gov_assistance'
-    should "shows that there is one client receiving government assistance"
+    should "shows that there is one client receiving government assistance" do
       assert_equal 1, Client.receiving_gov_assistance.size
       assert_equal ["Black"], Client.receiving_gov_assistance.alphabetical.map{|s| s.last_name}
     end
 
     # test the scope 'not_receiving_gov_assistance'
-    should "shows that there are six clients not receiving government assistance"
+    should "shows that there are six clients not receiving government assistance" do
       assert_equal 6, Client.not_receiving_gov_assistance.size
       assert_equal ["Carreon", "Clute", "Oak", "Saha", "Smith", "Tabrizi"], Client.not_receiving_gov_assistance.alphabetical.map{|s| s.last_name}
     end
 
     # test the scope 'male'
-    should "shows that there are five male clients"
+    should "shows that there are five male clients" do
       assert_equal 6, Client.male.size
       assert_equal ["Black", "Carreon", "Oak", "Saha", "Tabrizi"], Client.male.alphabetical.map{|s| s.last_name}
     end
 
     # test the scope 'female'
-    should "shows that there are two female clients"
+    should "shows that there are two female clients" do
       assert_equal 2, Client.female.size
       assert_equal ["Clute", "Smith"], Client.female.alphabetical.map{|s| s.last_name}
     end
 
     # test the scope 'employed'
-    should "shows that there are five employed clients"
+    should "shows that there are five employed clients" do
       assert_equal 5, Client.employed.size
       assert_equal ["Black", "Carreon", "Clute", "Saha", "Tabrizi"], Client.employed.alphabetical.map{|s| s.last_name}
     end
 
     # test the scope 'unemployed'
-    should "shows that there are two unemployed clients"
+    should "shows that there are two unemployed clients" do
       assert_equal 2, Client.unemployed.size
       assert_equal ["Oak", "Smith"], Client.unemployed.alphabetical.map{|s| s.last_name}
     end
 
     # test the scope 'veteran'
-    should "shows that there is one employed clients"
+    should "shows that there is one employed clients" do
       assert_equal 1, Client.veteran.size
       assert_equal ["Carreon"], Client.veteran.alphabetical.map{|s| s.last_name}
     end
