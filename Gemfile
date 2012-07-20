@@ -36,3 +36,13 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'simplecov'
+  gem 'validates_timeliness'
+end
+
+
