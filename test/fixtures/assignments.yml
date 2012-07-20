@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  deacon_id: 1
+  client_id: 1
+  start_date: 2012-07-19
+  end_date: 2012-07-19
+  exit_notes: MyString
+
+two:
+  deacon_id: 1
+  client_id: 1
+  start_date: 2012-07-19
+  end_date: 2012-07-19
+  exit_notes: MyString
