@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class ClientTest < ActiveSupport::TestCase
@@ -223,3 +224,4 @@ class ClientTest < ActiveSupport::TestCase
 
   end
 end
+=end

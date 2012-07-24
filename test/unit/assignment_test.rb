@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class AssignmentTest < ActiveSupport::TestCase
@@ -118,3 +119,4 @@ class AssignmentTest < ActiveSupport::TestCase
      
    end
 end
+=end

@@ -1,0 +1,2 @@
+class DeaconController < ApplicationController
+end
