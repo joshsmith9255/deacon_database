@@ -127,7 +127,13 @@ class ClientTest < ActiveSupport::TestCase
     
     # and provide a teardown method as well
     teardown do
-      Client.destroy_all
+      @dan.destroy
+      @barnik.destroy
+      @ryan.destroy
+      @joe.destroy
+      @madeleine.destroy
+      @jonathan.destroy
+      @meg.destroy
     end
   
     # test one of each factory
