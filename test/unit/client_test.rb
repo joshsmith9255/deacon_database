@@ -208,7 +208,7 @@ class ClientTest < ActiveSupport::TestCase
     end
 
     # test the scope 'veteran'
-    should "shows that there is one employed clients" do
+    should "shows that there is one veteran clients" do
       assert_equal 1, Client.veteran.size
       assert_equal ["Carreon"], Client.veteran.alphabetical.map{|s| s.last_name}
     end
