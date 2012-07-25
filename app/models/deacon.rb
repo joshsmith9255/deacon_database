@@ -1,4 +1,4 @@
-=begin
+
 class Deacon < ActiveRecord::Base	
   # Callbacks
   before_save :reformat_phone
@@ -64,4 +64,3 @@ class Deacon < ActiveRecord::Base
      self.phone = phone       # reset self.phone to new string
    end
 end
-=end

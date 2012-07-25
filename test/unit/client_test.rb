@@ -126,6 +126,7 @@ class ClientTest < ActiveSupport::TestCase
     end
     
     # and provide a teardown method as well
+=begin
     teardown do
       @dan.destroy
       @barnik.destroy
@@ -135,6 +136,7 @@ class ClientTest < ActiveSupport::TestCase
       @jonathan.destroy
       @meg.destroy
     end
+=end
   
     # test one of each factory
     should "show that all factories are properly created" do
@@ -144,7 +146,7 @@ class ClientTest < ActiveSupport::TestCase
       assert_equal "Madeleine", @madeleine.first_name
       assert @jonathan.active
       assert @meg.active
-      deny @barnik.active
+      assert_equal false, @barnik.active
     end
     
     # test the callback is working 'reformat_phone'
@@ -159,7 +161,7 @@ class ClientTest < ActiveSupport::TestCase
     
     # test the scope 'active'
     should "shows that there are six active clients" do
-      assert_equal 2, Client.active.size
+      assert_equal 6, Client.active.size
       assert_equal ["Black", "Carreon", "Clute", "Oak", "Smith", "Tabrizi"], Client.active.alphabetical.map{|s| s.last_name}
     end
     
@@ -183,7 +185,7 @@ class ClientTest < ActiveSupport::TestCase
 
     # test the scope 'male'
     should "shows that there are five male clients" do
-      assert_equal 6, Client.male.size
+      assert_equal 5, Client.male.size
       assert_equal ["Black", "Carreon", "Oak", "Saha", "Tabrizi"], Client.male.alphabetical.map{|s| s.last_name}
     end
 

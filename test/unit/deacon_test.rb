@@ -1,6 +1,5 @@
 =begin
 require 'test_helper'
-require 'test/unit'
  
 class DeaconTest < ActiveSupport::TestCase
 	# Test relationships
