@@ -8,7 +8,7 @@ class Client < ActiveRecord::Base
   has_many :interventions, :through => :assignments
 
   # Validations
-  validates_presence_of :first_name, :last_name, :gender, :address, :city, :state, :zip, :phone
+  validates_presence_of :first_name, :last_name, :gender, :address, :city, :state, :zip, :phone, :ethnicity
   validates :active, :inclusion => { :in => [true, false] }
   validates_inclusion_of :gender, :in => %w[male female], :message => "is not an option"
   validates_inclusion_of :marital_status, :in => %w[single married separated divorced], :message => "is not an option"
