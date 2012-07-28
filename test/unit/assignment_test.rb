@@ -32,20 +32,20 @@ class AssignmentTest < ActiveSupport::TestCase
        @assign_carl_2 = FactoryGirl.create(:assignment, :deacon => @carl, :client => @barnik, :start_date => 2.years.ago.to_date, :end_date => 6.months.ago.to_date)
      end
 
-     # and provide a teardown method as well
-     teardown do
-       @dan.destroy
-       @barnik.destroy
-       @ryan.destroy
-       @nico.destroy
-       @carl.destroy
-       @steph.destroy
-       @derek.destroy
-       @gesue.destroy
-       @assign_carl.destroy
-       @assign_steph.destroy
-       @assign_carl_2.destroy
-     end
+     # # and provide a teardown method as well
+     # teardown do
+     #   @dan.destroy
+     #   @barnik.destroy
+     #   @ryan.destroy
+     #   @nico.destroy
+     #   @carl.destroy
+     #   @steph.destroy
+     #   @derek.destroy
+     #   @gesue.destroy
+     #   @assign_carl.destroy
+     #   @assign_steph.destroy
+     #   @assign_carl_2.destroy
+     # end
      
      should "have a scope 'for_client' that works" do
        assert_equal 1, Assignment.for_client(@dan.id).size

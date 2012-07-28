@@ -1,4 +1,3 @@
-=begin
 require 'test_helper'
  
 class DeaconTest < ActiveSupport::TestCase
@@ -84,18 +83,18 @@ class DeaconTest < ActiveSupport::TestCase
 	  @assign_carl = FactoryGirl.create(:assignment, :deacon => @carl, :client => @dan)
 	  @assign_steph = FactoryGirl.create(:assignment, :deacon => @steph, :client => @dan, :end_date => nil)
 	end
-	
+
 	# and provide a teardown method as well
-	teardown do
-	  @dan.destroy
-	  @carl.destroy
-	  @steph.destroy
-	  @derek.destroy
-	  @gesue.destroy
-	  @assign_carl.destroy
-	  @assign_steph.destroy
-	end
-  
+  # teardown do
+  #   @dan.destroy
+  #   @carl.destroy
+  #   @steph.destroy
+  #   @derek.destroy
+  #   @gesue.destroy
+  #   @assign_carl.destroy
+  #   @assign_steph.destroy
+  # end
+
 	# now run the tests:
 	# test deacons must have unique email #DONE
 	should "force deacons to have unique email" do
@@ -162,4 +161,3 @@ class DeaconTest < ActiveSupport::TestCase
 
   end
 end
-=end

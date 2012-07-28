@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class ClientTest < ActiveSupport::TestCase
@@ -126,17 +127,17 @@ class ClientTest < ActiveSupport::TestCase
     end
     
     # and provide a teardown method as well
-=begin
-    teardown do
-      @dan.destroy
-      @barnik.destroy
-      @ryan.destroy
-      @joe.destroy
-      @madeleine.destroy
-      @jonathan.destroy
-      @meg.destroy
-    end
-=end
+
+    # teardown do
+    #   @dan.destroy
+    #   @barnik.destroy
+    #   @ryan.destroy
+    #   @joe.destroy
+    #   @madeleine.destroy
+    #   @jonathan.destroy
+    #   @meg.destroy
+    # end
+
   
     # test one of each factory
     should "show that all factories are properly created" do
@@ -225,3 +226,4 @@ class ClientTest < ActiveSupport::TestCase
 
   end
 end
+=end
