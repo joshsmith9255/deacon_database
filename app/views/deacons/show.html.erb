@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="span8">
+		<h3>Deacon Details:</h3>
+		<%= render :partial => "deacon_details" %>
+	</div>
+	<div class="span4">
+		<h3>Assignment History:</h3>
+		<%= render :partial => "assignment_history" unless @assignments.empty? %>
+		<%= link_to(raw("<i class='icon-plus icon-white'></i> New Assignment"), new_assignment_path(:id => @deacon.id, :from => 'deacon'), :class => 'btn btn-primary') %>
+	</div>
+</div>
+
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-th-list'></i> Display All Deacons"), deacons_path, :class => 'btn'  %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-pencil'></i> Edit #{@deacon.proper_name}"), edit_deacon_path(@deacon), :class => 'btn' %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-trash icon-white'></i> Delete #{@deacon.proper_name}"), deacon_path(@deacon), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

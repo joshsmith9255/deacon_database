@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+			<th class="centered">Start Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @current_assignments.each do |assignment| %>
+      <tr>
+        <td><%= link_to assignment.deacon.name, deacon_path(assignment.deacon) %></td>
+				<td class="centered"><%= assignment.start_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @current_assignments, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+

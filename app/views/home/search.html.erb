@@ -1,0 +1,22 @@
+<h2>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h2>
+<p class="supertiny">&nbsp;</p>
+
+<% unless @deacons.empty? %>
+	<p><em><strong>Deacons matching term '<%= @query %>'</strong></em></p>
+	<ul>
+		<% for deacon in @deacons do %>
+			<li><%= link_to deacon.name, deacon_path(deacon) %></li>
+		<% end %>
+	</ul>
+	<p class="smtext">&nbsp;</p>
+<% end %>
+
+<% unless @clients.empty? %>
+	<p><em><strong>Clients matching term '<%= @query %>'</strong></em></p>
+	<ul>
+		<% for client in @clients do %>
+			<li><%= link_to client.name, client_path(client) %></li>
+		<% end %>
+	</ul>
+	<p class="supertiny">&nbsp;</p>
+<% end %>

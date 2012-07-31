@@ -1,0 +1,21 @@
+<p>
+	<h4>
+	  Name: <%= @client.name %>
+	</h4>
+</p>
+
+<p>
+  <b>Address:</b><br>
+  <%= @client.street %><br />
+	<%= @client.city %>, <%= @client.state %> <%= @client.zip %>
+</p>
+
+<p>
+  <b>Phone:</b><br>
+  <%= number_to_phone @client.phone %>
+</p>
+
+<p>
+  <b>Active:</b> 
+  <%= @client.active ? "Yes" : "No" %>
+</p>

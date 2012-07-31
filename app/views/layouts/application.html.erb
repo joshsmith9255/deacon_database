@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DeaconDatabase</title>
+  <title>Allegheny Center Alliance Church</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<!-- TITLE BAR -->
+	<!-- <%= link_to(image_tag('amc_titlebar_1.png'), home_path) %> -->
+	<!-- NAV BAR -->
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </a>
+				<%# link_to "Home", home_path, :class => "brand" %>
+	      <!-- <a class="brand" href="#">ACAA</a> -->
+	      <div class="nav-collapse">
+	        <ul class="nav">
+	          <li><%= link_to "Clients", clients_path %></li>
+	          <li><%= link_to "Deacons", deacons_path %></li>
+	          <li><%= link_to "Assignments", assignments_path %></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- MAIN CONTENT -->
+	<div class="container">
+		<!-- flash messages -->
+		<% flash.each do |name, msg| %>
+			<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+				<a class="close" data-dismiss="alert">&times;</a>
+				<%= msg %>
+			</div>
+    <% end %>
+		<div class="row">
+			<!-- main content placed here -->
+			<div class="span12">
+				<%= yield %>
+			</div>
+		</div>
+	</div>
+	
+	<!-- FOOTER -->
+	<footer id="footer">
+    <div class="container">
+			<%= render :partial => "partials/footer" %>
+    </div>
+  </footer>
 </body>
 </html>

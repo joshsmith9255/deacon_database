@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+			<th>Phone</th>
+			<th>Currently Assigned</th>
+			<th>Role</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @deacons.each do |deacon| %>
+      <tr>
+        <td><%= link_to deacon.name, deacon_path(deacon) %></td>
+				<td><%= number_to_phone deacon.phone unless deacon.phone.nil?  %></td>
+				<td><%= link_to deacon.current_assignment.client.name, client_path(deacon.current_assignment.client) unless deacon.current_assignment.nil? %></td>
+        <td><%= deacon.role.capitalize %></td>
+				<td>
+					<%= link_to raw("<i class='icon-file'></i> Details"), deacon_path(deacon), :class => 'btn btn-mini' %>
+          <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_deacon_path(deacon), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @deacons, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

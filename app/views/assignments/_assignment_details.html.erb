@@ -1,0 +1,27 @@
+<br />
+<p>
+  <b>Client</b>: <%= link_to @assignment.client.name, client_path(@assignment.client) %>
+</p>
+
+<p>
+  <b>Deacon</b>: <%= link_to @assignment.deacon.name, deacon_path(@assignment.deacon) %>
+</p>
+
+<p>
+  <b>Start date</b>: <%= @assignment.start_date.strftime("%m/%d/%y") %>
+</p>
+
+<p>
+	<b>End date</b>: 
+	<% if @assignment.end_date.nil? %>
+		&nbsp;&nbsp;<em>TBD</em>
+	<% else %>
+  	<%= @assignment.end_date.strftime("%m/%d/%y") %>
+	<% end %>
+</p>
+
+<p>
+	<% if @assignment.end_date.nil? == false %>
+	<b>Exit Notes</b>: <%= @assignment.exit_notes %>
+	<% end %>
+</p>

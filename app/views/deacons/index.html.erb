@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="span8">
+		<h2>Current Deacons</h2>
+		<%= render :partial => "current_deacons" unless @deacons.empty? %>
+	</div>
+	<div class="span4">
+		<h2>Former Deacons</h2>
+		<%= render :partial => "inactive_deacons" unless @inactive_deacons.empty? %>
+		
+	</div>
+</div>
+
+<%= link_to raw("<i class='icon-plus icon-white'></i> Add a New Deacon"), new_deacon_path, :class => 'btn btn-primary', :id => 'Create Deacon' %>

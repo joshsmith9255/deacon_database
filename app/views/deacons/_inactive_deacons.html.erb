@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inactive_deacons.each do |deacon| %>
+      <tr>
+        <td><%= link_to deacon.name, deacon_path(deacon) %></td>
+				<td>
+					<%# link_to raw("<i class='icon-file'></i> Details"), deacon_path(deacon), :class => 'btn btn-mini' %>
+          <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_deacon_path(deacon), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @inactive_deacons, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Client</th>
+			<th>Dates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= link_to assignment.client.name, client_path(assignment.client) %></td>
+				<td>
+					<%= assignment.start_date.strftime("%m/%d/%y") %>
+					<% if assignment.end_date.nil? %>
+						&nbsp;&nbsp;&nbsp;<%= link_to(raw("<i class='icon-remove'></i> End"), edit_assignment_path(assignment), :class => 'btn btn-mini') %>
+					<% else %>
+						&nbsp;-&nbsp;<%= assignment.end_date.strftime("%m/%d/%y") %>
+					<% end %>
+				</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @assignments, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

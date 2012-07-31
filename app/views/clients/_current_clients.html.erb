@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Client Name</th>
+			<th>Client Phone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= link_to client.name, client_path(client) %></td>
+				<td><%= number_to_phone client.phone %></td>
+        <td>
+					<%= link_to raw("<i class='icon-file'></i> Details"), client_path(client), :class => 'btn btn-mini' %>
+          <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_client_path(client), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @clients, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

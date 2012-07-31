@@ -1,0 +1,17 @@
+<p>
+	<h4>
+	  Name: <%= @deacon.name %>
+	</h4>
+</p>
+
+<p>
+  <b>Date of Birth:</b> <%= @deacon.gender %>
+</p>
+
+<p>
+  <b>Phone:</b> <%= number_to_phone @deacon.phone unless @deacon.phone.nil? %>
+</p>
+
+<p>
+  <b>Active:</b> <%= @deacon.active ? "Yes" : "No" %>
+</p>

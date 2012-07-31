@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="span8">
+		<h3>Assignment Details</h3>
+		<%= render :partial => "assignment_details" %>
+	</div>
+	<!--
+	<div class="span4">
+		<h3>Interventions</h3>
+		<%= render :partial => "shift_history" unless @interventions.empty? %>
+	</div>
+	-->
+</div>
+
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-th-list'></i> Display All Assignments"), assignments_path, :class => 'btn'  %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-pencil'></i> Edit Assignment"), edit_assignment_path(@assignment), :class => 'btn' %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-trash icon-white'></i> Delete Assignment"), assignment_path(@assignment), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
+
