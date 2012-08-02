@@ -14,6 +14,6 @@
 
 <div class="form-actions">
   <%= link_to raw("<i class='icon-th-list'></i> Display All Clients"), clients_path, :class => 'btn'  %>&nbsp;&nbsp;
-  <%= link_to raw("<i class='icon-pencil'></i> Edit #{@client.name}"), edit_client_path(@client), :class => 'btn' %>&nbsp;&nbsp;
-  <%= link_to raw("<i class='icon-trash icon-white'></i> Delete #{@client.name}"), client_path(@client), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <%= link_to raw("<i class='icon-pencil'></i> Edit #{@client.proper_name}"), edit_client_path(@client), :class => 'btn' %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-trash icon-white'></i> Delete #{@client.proper_name}"), client_path(@client), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

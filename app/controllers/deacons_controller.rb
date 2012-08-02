@@ -46,7 +46,7 @@ class DeaconsController < ApplicationController
   def destroy
     @deacon = Deacon.find(params[:id])
     @deacon.destroy
-    flash[:notice] = "Successfully removed #{@deacon.proper_name} from the ACAA system."
+    flash[:notice] = "Successfully removed #{@deacon.proper_name} from the ACAC system."
     redirect_to deacons_url
   end
 end

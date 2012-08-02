@@ -1,13 +1,62 @@
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Client</legend>
+	<p>* Denotes required field </p>
+	<br>
+	<table class="table table-striped" >
+		<tbody>
+			<tr>
+				<td>Contact</td>
+				<td>Personal</td>
+				<td>Aid Considerations</td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+					  <b>Name:</b><br>
+					  <%= f.input :last_name %>
+					  <%= f.input :first_name %>
+					  <br>
+					</p>
+					<p>
+					  <b>Residence:</b><br>
+					  	<%= f.input :address %>
+						<%= f.input :city %>
+						<%= f.input :state, :collection => Client::STATES_LIST %>
+						<%= f.input :zip %>
+						<br>
+					</p>
 
-		<%= f.input :name %>
-		<%= f.input :street %>
-		<%= f.input :city %>
-		<%= f.input :state, :collection => Client::STATES_LIST %>
-		<%= f.input :zip %>
-		<%= f.input :phone %>
+					<p>
+						<%= f.input :phone %>
+						<br>
+					</p>
+				</td>
+				<td>
+					<p>
+						<%= f.input :gender, :collection => Client::GENDER_LIST %><br>
+						<%= f.input :ethnicity %><br>
+						<%= f.input :marital_status, :collection => Client::MARITAL_LIST %><br>
+					</p>
+				</td>
+				<td>
+					<p>
+						<b>Currently employed:</b><br>
+						<%= f.input :is_employed %>
+					</p>
+					<p>
+						<b>Receiving government assistance:</b><br>
+						<%= f.input :gov_assistance %>
+					</p>
+					<p>
+						<b>Veteran:</b><br>
+						<%= f.input :is_veteran %>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
 		<%= f.input :active %>
 
     <div class="form-actions">

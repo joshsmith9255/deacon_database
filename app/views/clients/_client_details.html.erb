@@ -1,21 +1,58 @@
 <p>
-	<h4>
-	  Name: <%= @client.name %>
-	</h4>
+	<h3>
+	  <%= @client.proper_name %>
+	</h3>
+	<p>
+	  <b>Active:</b> 
+	  <%= @client.active ? "Yes" : "No" %>
+	</p>
 </p>
 
-<p>
-  <b>Address:</b><br>
-  <%= @client.street %><br />
-	<%= @client.city %>, <%= @client.state %> <%= @client.zip %>
-</p>
+<table class="table table-striped" >
+	<tbody>
+		<tr>
+			<td>Contact</td>
+			<td>Personal</td>
+			<td>Aid Considerations</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+				  <b>Address:</b><br>
+				  <%= @client.address %><br />
+					<%= @client.city %>, <%= @client.state %> <%= @client.zip %>
+				</p>
 
-<p>
-  <b>Phone:</b><br>
-  <%= number_to_phone @client.phone %>
-</p>
-
-<p>
-  <b>Active:</b> 
-  <%= @client.active ? "Yes" : "No" %>
-</p>
+				<p>
+				  <b>Phone:</b><br>
+				  <%= number_to_phone @client.phone %>
+				</p>
+			</td>
+			<td>
+				<p>
+					<b>Gender:</b><br>
+					<%= @client.gender %>
+				</p>
+				<p>
+					<b>Ethnicity:</b><br>
+					<%= @client.ethnicity %>
+				</p>
+				<p>
+					<b>Marital Status:</b><br>
+					<%= @client.marital_status %>
+				</p>
+			</td>
+			<td>
+				<p>
+					<%= @client.is_employed ? "Employed" : "Unemployed" %><br>
+				</p>
+				<p>
+					<%= @client.gov_assistance ? "Receiving Government Assistance" : "Not Receiving Government Assistance" %><br>
+				</p>
+				<p>
+					<%= @client.is_veteran ? "Veteran" : "" %><br>
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table>

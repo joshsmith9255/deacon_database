@@ -42,10 +42,11 @@ class ClientTest < ActiveSupport::TestCase
       should_not allow_value(0.5).for(:ethnicity)
 
       # tests for marital status
-      should allow_value("single").for(:marital_status)
-      should allow_value("married").for(:marital_status)
-      should allow_value("separated").for(:marital_status)
-      should allow_value("divorced").for(:marital_status)
+      should allow_value("Single").for(:marital_status)
+      should allow_value("Married").for(:marital_status)
+      should allow_value("Separated").for(:marital_status)
+      should allow_value("Divorced").for(:marital_status)
+      should allow_value("Other").for(:marital_status)
 
       should_not allow_value("White").for(:marital_status)
       should_not allow_value(nil).for(:marital_status)

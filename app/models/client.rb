@@ -10,8 +10,8 @@ class Client < ActiveRecord::Base
   # Validations
   validates_presence_of :first_name, :last_name, :gender, :address, :city, :state, :zip, :phone, :ethnicity
   validates :active, :inclusion => { :in => [true, false] }
-  validates_inclusion_of :gender, :in => %w[male female], :message => "is not an option"
-  validates_inclusion_of :marital_status, :in => %w[single married separated divorced], :message => "is not an option"
+  validates_inclusion_of :gender, :in => %w[Male Female], :message => "is not an option"
+  validates_inclusion_of :marital_status, :in => %w[Single Married Separated Divorced Other], :message => "is not an option"
   validates_inclusion_of :state, :in => %w[PA OH WV], :message => "is not an option"
   validates_format_of :zip, :with => /^\d{5}$/, :message => "should be five digits long"
   validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only"
@@ -56,8 +56,9 @@ class Client < ActiveRecord::Base
   end
 
   # Misc Constants
-  GENDER_LIST = [['Male', 'male'],['Female', 'female']]
+  GENDER_LIST = [['Male', 'Male'],['Female', 'Female']]
   STATES_LIST = [['Ohio', 'OH'],['Pennsylvania', 'PA'],['West Virginia', 'WV']]
+  MARITAL_LIST = [['Single', 'Single'],['Married', 'Married'],['Separated', 'Separated'],['Divorced', 'Divorced'],['Other', 'Other']]
 
   # Callback code
   # -----------------------------

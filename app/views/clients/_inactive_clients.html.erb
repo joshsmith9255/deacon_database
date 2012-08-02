@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <th>Client Name</th>
+			<th>Phone</th>
 			<th>Address</th>
       <th>Actions</th>
     </tr>
@@ -11,7 +12,8 @@
     <% @inactive_clients.each do |client| %>
       <tr>
         <td><%= link_to client.name, client_path(client) %></td>
-				<td><%= client.street %>, <%= client.city %></td>
+				<td><%= number_to_phone client.phone %></td>
+				<td><%= client.address %><br/><%= client.city %>, <%= client.state%>  <%=client.zip%></td>
         <td>
 					<%= link_to raw("<i class='icon-file'></i> Details"), client_path(client), :class => 'btn btn-mini' %>
           <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_client_path(client), :class => 'btn btn-mini' %>

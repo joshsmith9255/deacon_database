@@ -44,7 +44,7 @@ class ClientsController < ApplicationController
   def destroy
     @client = Client.find(params[:id])
     @client.destroy
-    flash[:notice] = "Successfully removed #{@client.name} from the ACAA system."
+    flash[:notice] = "Successfully removed #{@client.name} from the ACAC system."
     redirect_to clients_url
   end
 end
