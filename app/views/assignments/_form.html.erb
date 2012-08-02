@@ -8,9 +8,9 @@
 		<%# Only show the end_date on 'edit', not 'new' %>
 		<% if controller.action_name == "edit" %>
 			<%= f.input :end_date, :label => "End Date", :as => :date, :start_year => Date.today.year, :end_year => Date.today.year - 1, :order => [:month, :day, :year] %>
-		<% end %>
 		
 		<%= f.input :exit_notes, :include_blank => true %>
+		<% end %>
 
 
     <div class="form-actions">

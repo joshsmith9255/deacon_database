@@ -44,8 +44,8 @@ class DeaconTest < ActiveSupport::TestCase
 	should_not allow_value("412-2683-259").for(:phone)
 
 	# tests for gender
-	should allow_value("male").for(:gender)
-	should allow_value("female").for(:gender)
+	should allow_value("Male").for(:gender)
+	should allow_value("Female").for(:gender)
 
 	should_not allow_value(nil).for(:gender)
 	should_not allow_value(1).for(:gender)
@@ -53,8 +53,8 @@ class DeaconTest < ActiveSupport::TestCase
 	should_not allow_value("I believe gender is a societal construct.").for(:gender)
 
 	# tests for role
-	should allow_value("admin").for(:role)
-	should allow_value("deacon").for(:role)
+	should allow_value("Admin").for(:role)
+	should allow_value("Deacon").for(:role)
 
 	should_not allow_value("boss").for(:role)
 	should_not allow_value("employee").for(:role)

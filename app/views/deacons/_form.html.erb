@@ -1,11 +1,49 @@
 <%= simple_form_for @deacon, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Deacon</legend>
-		
-		<%= f.input :first_name %>
-		<%= f.input :last_name %>
-		<%= f.input :phone %>
-		<%= f.input :active %>
+	<p>* Denotes required field </p>
+	<br>
+	<table class="table table-striped" >
+		<tbody>
+			<tr>
+				<td>Contact</td>
+				<td>Personal</td>
+				<td>Account</td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+					  <b>Name:</b><br>
+					  <%= f.input :last_name %>
+					  <%= f.input :first_name %>
+					  <br>
+					</p>
+					<p>
+						<%= f.input :phone %>
+						<br>
+					</p>
+				</td>
+				<td>
+					<p>
+						<%= f.input :gender, :collection => Deacon::GENDER_LIST %><br>
+					</p>
+				</td>
+				<td>
+					<p>
+						<%= f.input :email %>
+					</p>
+					<p>
+						<%= f.input :password %><br>
+					</p>
+					<p>
+						<%= f.input :role, :collection => Deacon::ROLE_LIST %><br>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+		<%= f.input :active unless controller.action_name.capitalize != 'Edit' %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

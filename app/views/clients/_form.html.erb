@@ -57,7 +57,7 @@
 		</tbody>
 	</table>
 
-		<%= f.input :active %>
+		<%= f.input :active unless controller.action_name.capitalize != 'Edit' %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

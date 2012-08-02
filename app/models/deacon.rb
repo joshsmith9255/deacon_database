@@ -15,8 +15,8 @@ class Deacon < ActiveRecord::Base
   # Validations
   validates_presence_of :first_name, :last_name, :active
   validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => false
-  validates_inclusion_of :role, :in => %w[admin deacon], :message => "is not an option"
-  validates_inclusion_of :gender, :in => %w[male female], :message => "is not an option"
+  validates_inclusion_of :role, :in => %w[Admin Deacon], :message => "is not an option"
+  validates_inclusion_of :gender, :in => %w[Male Female], :message => "is not an option"
   validates_uniqueness_of :email
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
   
@@ -52,8 +52,8 @@ class Deacon < ActiveRecord::Base
   end
   
   # Misc Constants
-  ROLES_LIST = [['Deacon', 'deacon'],['Administrator', 'admin']]
-  GENDER_LIST = [['Male', 'male'],['Female', 'female']]
+  ROLE_LIST = [['Deacon', 'Deacon'],['Administrator', 'Admin']]
+  GENDER_LIST = [['Male', 'Male'],['Female', 'Female']]
   
   # Callback code  (NOT DRY!!!)
   # -----------------------------
