@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20120720005544) do
     t.boolean  "gov_assistance"
     t.boolean  "is_employed"
     t.boolean  "is_veteran"
-    t.boolean  "active", :default => true
+    t.boolean  "active"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20120720005544) do
     t.string   "phone"
     t.string   "gender"
     t.string   "role"
-    t.boolean  "active", :default => true
+    t.boolean  "active"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

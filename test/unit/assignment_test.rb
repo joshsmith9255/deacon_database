@@ -24,7 +24,7 @@ class AssignmentTest < ActiveSupport::TestCase
        @ryan = FactoryGirl.create(:client, :last_name => "Black", :first_name => "Ryan" )
        @nico = FactoryGirl.create(:client, :last_name => "Zevallos", :first_name => "Nico", :active => false)
        @carl = FactoryGirl.create(:deacon)
-       @steph = FactoryGirl.create(:deacon, :first_name => "Steph", :last_name => "Seybert", :email => "sseybert@gmail.com", :gender => "female", :phone => "412-268-2323")
+       @steph = FactoryGirl.create(:deacon, :first_name => "Steph", :last_name => "Seybert", :email => "sseybert@gmail.com", :gender => "Female", :phone => "412-268-2323")
        @derek = FactoryGirl.create(:deacon, :first_name => "Derek", :last_name => "Lessard", :active => false, :email => "dlessard@hotmail.com")
        @gesue = FactoryGirl.create(:deacon, :first_name => "Gesue", :last_name => "Staltari", :email => "gstaltari@duq.edu", :role => "admin")
        @assign_carl = FactoryGirl.create(:assignment, :deacon => @carl, :client => @dan)

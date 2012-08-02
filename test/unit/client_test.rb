@@ -1,4 +1,3 @@
-=begin
 require 'test_helper'
 
 class ClientTest < ActiveSupport::TestCase
@@ -122,9 +121,9 @@ class ClientTest < ActiveSupport::TestCase
       @barnik = FactoryGirl.create(:client, :last_name => "Saha", :first_name => "Barnik", :active => false, :ethnicity => "Indian" )
       @ryan = FactoryGirl.create(:client, :last_name => "Black", :first_name => "Ryan", :phone => "412-867-5309", :ethnicity => "White", :gov_assistance => true )
       @joe = FactoryGirl.create(:client, :last_name => "Oak", :first_name => "Joseph", :ethnicity => "Asian", :is_employed => false )
-      @madeleine = FactoryGirl.create(:client, :last_name => "Clute", :first_name => "Madeleine", :gender => "female", :ethnicity => "White" )
+      @madeleine = FactoryGirl.create(:client, :last_name => "Clute", :first_name => "Madeleine", :gender => "Female", :ethnicity => "White" )
       @jonathan = FactoryGirl.create(:client, :last_name => "Carreon", :first_name => "Jonathan", :is_veteran => true )
-      @meg = FactoryGirl.create(:client, :last_name => "Smith", :first_name => "Megan", :ethnicity => "White", :gender => "female", :is_employed => false)
+      @meg = FactoryGirl.create(:client, :last_name => "Smith", :first_name => "Megan", :ethnicity => "White", :gender => "Female", :is_employed => false)
     end
     
     # and provide a teardown method as well
@@ -227,4 +226,3 @@ class ClientTest < ActiveSupport::TestCase
 
   end
 end
-=end

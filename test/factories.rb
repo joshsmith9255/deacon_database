@@ -2,9 +2,9 @@ FactoryGirl.define do
   factory :client do
     last_name "Tabrizi"
     first_name "Dan"
-    gender "male"
+    gender "Male"
     ethnicity "Hispanic"
-    marital_status "single"
+    marital_status "Single"
     address "101 North Dithridge Street"
     city "Pittsburgh"
     state "PA"
@@ -21,8 +21,8 @@ FactoryGirl.define do
     first_name "Carl"
     email "cglazer@andrew.cmu.edu"
     phone { rand(10 ** 10).to_s.rjust(10,'0') }
-    gender "male"
-    role "deacon"
+    gender "Male"
+    role "Deacon"
     active true
   end
   

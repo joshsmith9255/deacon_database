@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
  
 class DeaconTest < ActiveSupport::TestCase
@@ -77,9 +78,9 @@ class DeaconTest < ActiveSupport::TestCase
 	setup do 
 	  @dan = FactoryGirl.create(:client)
 	  @carl = FactoryGirl.create(:deacon)
-	  @steph = FactoryGirl.create(:deacon, :first_name => "Steph", :last_name => "Seybert", :email => "sseybert@gmail.com", :gender => "female", :phone => "412-268-2323")
+	  @steph = FactoryGirl.create(:deacon, :first_name => "Steph", :last_name => "Seybert", :email => "sseybert@gmail.com", :gender => "Female", :phone => "412-268-2323")
 	  @derek = FactoryGirl.create(:deacon, :first_name => "Derek", :last_name => "Lessard", :active => false, :email => "dlessard@hotmail.com")
-	  @gesue = FactoryGirl.create(:deacon, :first_name => "Gesue", :last_name => "Staltari", :email => "gstaltari@duq.edu", :role => "admin")
+	  @gesue = FactoryGirl.create(:deacon, :first_name => "Gesue", :last_name => "Staltari", :email => "gstaltari@duq.edu", :role => "Admin")
 	  @assign_carl = FactoryGirl.create(:assignment, :deacon => @carl, :client => @dan)
 	  @assign_steph = FactoryGirl.create(:assignment, :deacon => @steph, :client => @dan, :end_date => nil)
 	end
@@ -161,3 +162,4 @@ class DeaconTest < ActiveSupport::TestCase
 
   end
 end
+=end

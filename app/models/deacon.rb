@@ -23,11 +23,11 @@ class Deacon < ActiveRecord::Base
   # Scopes
   scope :active, where('active = ?', true)
   scope :inactive, where('active = ?', false)
-  scope :regulars, where('role = ?', 'deacon')
-  scope :admins, where('role = ?', 'admin')
+  scope :regulars, where('role = ?', 'Deacon')
+  scope :admins, where('role = ?', 'Admin')
 
-  scope :male, where('gender = ?', 'male')
-  scope :female, where('gender = ?', 'female')
+  scope :male, where('gender = ?', 'Male')
+  scope :female, where('gender = ?', 'Female')
   
   scope :alphabetical, order('last_name, first_name')
 

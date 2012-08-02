@@ -24,8 +24,8 @@ class Client < ActiveRecord::Base
   scope :receiving_gov_assistance, where('gov_assistance = ?', true)
   scope :not_receiving_gov_assistance, where('gov_assistance = ?', false)
 
-  scope :male, where('gender = ?', 'male')
-  scope :female, where('gender = ?', 'female')
+  scope :male, where('gender = ?', 'Male')
+  scope :female, where('gender = ?', 'Female')
 
   scope :by_marital_status, lambda { |status| where("marital_status = ?", status) }
   scope :by_ethnicity, lambda { |race| where("ethnicity = ?", race) }
