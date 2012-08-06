@@ -37,14 +37,14 @@ class Assignment < ActiveRecord::Base
   def deacon_is_active_in_system
     all_active_deacons = Deacon.active.all.map{|e| e.id}
     unless all_active_deacons.include?(self.deacon_id)
-      errors.add(:deacon_id, "is not an active deacon at ACAA")
+      errors.add(:deacon_id, "is not an active deacon at ACAC")
     end
   end
   
   def client_is_active_in_system
     all_active_clients = Client.active.all.map{|s| s.id}
     unless all_active_clients.include?(self.client_id)
-      errors.add(:client_id, "is not an active client at ACAA")
+      errors.add(:client_id, "is not an active client at ACAC")
     end
   end
 end

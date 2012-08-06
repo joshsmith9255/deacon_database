@@ -14,7 +14,7 @@ class DeaconTest < ActiveSupport::TestCase
 	should validate_presence_of(:password)
 	should validate_presence_of(:gender)
 	should validate_presence_of(:role)
-	should validate_presence_of(:active)
+	#should validate_presence_of(:active)
   
 	# tests for email
 	should allow_value("fred@fred.com").for(:email)

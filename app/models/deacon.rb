@@ -1,4 +1,3 @@
-
 class Deacon < ActiveRecord::Base	
   # Callbacks
   before_save :reformat_phone

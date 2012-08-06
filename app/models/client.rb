@@ -5,7 +5,7 @@ class Client < ActiveRecord::Base
   # Relationships
   has_many :assignments
   has_many :deacons, :through => :assignments
-  has_many :interventions, :through => :assignments
+  # has_many :interventions, :through => :assignments
 
   # Validations
   validates_presence_of :first_name, :last_name, :gender, :address, :city, :state, :zip, :phone, :ethnicity
@@ -27,7 +27,10 @@ class Client < ActiveRecord::Base
   scope :male, where('gender = ?', 'Male')
   scope :female, where('gender = ?', 'Female')
 
-  scope :by_marital_status, lambda { |status| where("marital_status = ?", status) }
+  # scope :by_marital_status, lambda { |status| where("marital_status = ?", status) }
+
+
+
   scope :by_ethnicity, lambda { |race| where("ethnicity = ?", race) }
 
   scope :employed, where('is_employed = ?', true)
@@ -53,6 +56,11 @@ class Client < ActiveRecord::Base
     # curr_assignment = self.assignments.current    # will also return an array of current assignments
     return nil if curr_assignment.empty?
     curr_assignment.first   # return as a single object, not an array
+  end
+
+  def married
+    married_clients = 
+    married_clients
   end
 
   # Misc Constants
