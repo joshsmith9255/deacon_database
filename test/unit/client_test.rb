@@ -32,7 +32,6 @@ class ClientTest < ActiveSupport::TestCase
       should allow_value("Asian").for(:ethnicity)
       should allow_value("Black").for(:ethnicity)
       should allow_value("Hispanic").for(:ethnicity)
-      should allow_value("Latino").for(:ethnicity)
       should allow_value("Native American").for(:ethnicity)
       should allow_value("White").for(:ethnicity)
 

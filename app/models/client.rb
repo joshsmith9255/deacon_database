@@ -12,6 +12,7 @@ class Client < ActiveRecord::Base
   validates :active, :inclusion => { :in => [true, false] }
   validates_inclusion_of :gender, :in => %w[Male Female], :message => "is not an option"
   validates_inclusion_of :marital_status, :in => %w[Single Married Separated Divorced Other], :message => "is not an option"
+  validates_inclusion_of :methnicity, :in => %w['White' 'Black' 'Asian' 'Hispanic' 'Native American' 'Middle Eastern' 'Indian' 'Other'], :message => "is not an option"
   validates_inclusion_of :state, :in => %w[PA OH WV], :message => "is not an option"
   validates_format_of :zip, :with => /^\d{5}$/, :message => "should be five digits long"
   validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only"
@@ -58,15 +59,42 @@ class Client < ActiveRecord::Base
     curr_assignment.first   # return as a single object, not an array
   end
 
+  def assigned
+    assigned_clients = Client.select{|a| a.current_assignment != nil}
+    assigned_clients
+  end
+
+  def unassigned
+    unassigned_clients = Client.select{|a| a.current_assignment == nil}
+    unassigned_clients
+  end
+
   def married
-    married_clients = 
+    married_clients = Client.select{|a| a.marital_status == "Married"}
     married_clients
   end
+
+  def unmarried
+    unmarried_clients = Client.select{|a| a.marital_status != "Married"}
+    unmarried_clients
+  end
+
+  def majority
+    majority_clients = Client.select{|a| a.ethnicity == "White"}
+    majority_clients
+  end
+
+  def minority
+    minority_clients = Client.select{|a| a.ethnicity != "White"}
+    minority_clients
+  end
+
 
   # Misc Constants
   GENDER_LIST = [['Male', 'Male'],['Female', 'Female']]
   STATES_LIST = [['Ohio', 'OH'],['Pennsylvania', 'PA'],['West Virginia', 'WV']]
   MARITAL_LIST = [['Single', 'Single'],['Married', 'Married'],['Separated', 'Separated'],['Divorced', 'Divorced'],['Other', 'Other']]
+  RACE_LIST = [['White', 'White'],['Black', 'Black'],['Asian', 'Asian'],['Hispanic', 'Hispanic'],['Native American', 'Native American'],['Middle Eastern', 'Middle Eastern'],['Indian', 'Indian'],['Other', 'Other']]
 
   # Callback code
   # -----------------------------

@@ -30,8 +30,8 @@ class Deacon < ActiveRecord::Base
   
   scope :alphabetical, order('last_name, first_name')
 
-  scope :assigned, where('current_assignment != ?', nil)
-  scope :unassigned, where('current_assignment = ?', nil) 
+  # scope :assigned, where('current_assignment != ?', nil)
+  # scope :unassigned, where('current_assignment = ?', nil) 
   
   # Other methods
   def name
@@ -48,6 +48,16 @@ class Deacon < ActiveRecord::Base
     # curr_assignment = self.assignments.current    # will also return an array of current assignments
     return nil if curr_assignment.empty?
     curr_assignment.first   # return as a single object, not an array
+  end
+
+  def assigned
+    assigned_deacons = Deacon.select{|a| a.current_assignment != nil}
+    assigned_deacons
+  end
+
+  def unassigned
+    unassigned_deacons = Deacon.select{|a| a.current_assignment == nil}
+    unassigned_deacons
   end
   
   # Misc Constants
