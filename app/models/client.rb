@@ -9,10 +9,10 @@ class Client < ActiveRecord::Base
 
   # Validations
   validates_presence_of :first_name, :last_name, :gender, :address, :city, :state, :zip, :phone, :ethnicity
-  validates :active, :inclusion => { :in => [true, false] }
+  #validates :active, :inclusion => { :in => [true, false] }
   validates_inclusion_of :gender, :in => %w[Male Female], :message => "is not an option"
   validates_inclusion_of :marital_status, :in => %w[Single Married Separated Divorced Other], :message => "is not an option"
-  validates_inclusion_of :ethnicity, :in => %w['White' 'Black' 'Asian' 'Hispanic' 'Native American' 'Middle Eastern' 'Indian' 'Other'], :message => "is not an option"
+  validates_inclusion_of :ethnicity, :in => %w[White Black Asian Hispanic Native_American Middle_Eastern Indian Other], :message => "is not an option"
   validates_inclusion_of :state, :in => %w[PA OH WV], :message => "is not an option"
   validates_format_of :zip, :with => /^\d{5}$/, :message => "should be five digits long"
   validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only"
@@ -32,7 +32,7 @@ class Client < ActiveRecord::Base
 
 
 
-  scope :by_ethnicity, lambda { |race| where("ethnicity = ?", race) }
+  #scope :by_ethnicity, lambda { |race| where("ethnicity = ?", race) }
 
   scope :employed, where('is_employed = ?', true)
   scope :unemployed, where('is_employed = ?', false)
@@ -94,7 +94,7 @@ class Client < ActiveRecord::Base
   GENDER_LIST = [['Male', 'Male'],['Female', 'Female']]
   STATES_LIST = [['Ohio', 'OH'],['Pennsylvania', 'PA'],['West Virginia', 'WV']]
   MARITAL_LIST = [['Single', 'Single'],['Married', 'Married'],['Separated', 'Separated'],['Divorced', 'Divorced'],['Other', 'Other']]
-  RACE_LIST = [['White', 'White'],['Black', 'Black'],['Asian', 'Asian'],['Hispanic', 'Hispanic'],['Native American', 'Native American'],['Middle Eastern', 'Middle Eastern'],['Indian', 'Indian'],['Other', 'Other']]
+  RACE_LIST = [['White', 'White'],['Black', 'Black'],['Asian', 'Asian'],['Hispanic', 'Hispanic'],['Native American', 'Native_American'],['Middle Eastern', 'Middle_Eastern'],['Indian', 'Indian'],['Other', 'Other']]
 
   # Callback code
   # -----------------------------

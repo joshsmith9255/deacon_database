@@ -35,7 +35,7 @@
 				<td>
 					<p>
 						<%= f.input :gender, :collection => Client::GENDER_LIST %><br>
-						<%= f.input :ethnicity %><br>
+						<%= f.input :ethnicity, :collection => Client::RACE_LIST %><br>
 						<%= f.input :marital_status, :collection => Client::MARITAL_LIST %><br>
 					</p>
 				</td>

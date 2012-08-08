@@ -32,14 +32,14 @@ class ClientTest < ActiveSupport::TestCase
       should allow_value("Asian").for(:ethnicity)
       should allow_value("Black").for(:ethnicity)
       should allow_value("Hispanic").for(:ethnicity)
-      should allow_value("Native American").for(:ethnicity)
+      should allow_value("Native_American").for(:ethnicity)
       should allow_value("White").for(:ethnicity)
 
       # FIX ME
-      # should_not allow_value(nil).for(:ethnicity)
-      # should_not allow_value(1).for(:ethnicity)
-      # should_not allow_value(true).for(:ethnicity)
-      # should_not allow_value(0.5).for(:ethnicity)
+      should_not allow_value(nil).for(:ethnicity)
+      should_not allow_value(1).for(:ethnicity)
+      should_not allow_value(true).for(:ethnicity)
+      should_not allow_value(0.5).for(:ethnicity)
   
       # tests for marital status
       should allow_value("Single").for(:marital_status)
@@ -58,18 +58,18 @@ class ClientTest < ActiveSupport::TestCase
       # tests for address
       should allow_value("101 North Dithridge Street").for(:address)
       should allow_value("5000 Forbes Avenue").for(:address)
-  # 
-  #     should_not allow_value(true).for(:address)
-  #     should_not allow_value(101).for(:address)
-  #     should_not allow_value(nil).for(:address)
-  # 
-  #     # tests for zip
-  #     should allow_value("15213").for(:zip)
-  # 
-  #     should_not allow_value("bad").for(:zip)
-  #     should_not allow_value("1512").for(:zip)
-  #     should_not allow_value("152134").for(:zip)
-  #     should_not allow_value("15213-0983").for(:zip)
+  
+      # should_not allow_value(true).for(:address)
+      # should_not allow_value(101).for(:address)
+      # should_not allow_value(nil).for(:address)
+  
+      # tests for zip
+      # should allow_value("15213").for(:zip)
+  
+      # should_not allow_value("bad").for(:zip)
+      # should_not allow_value("1512").for(:zip)
+      # should_not allow_value("152134").for(:zip)
+      # should_not allow_value("15213-0983").for(:zip)
   # 
   #     # tests for state
   #     should allow_value("OH").for(:state)
