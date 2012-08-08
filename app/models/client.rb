@@ -12,7 +12,7 @@ class Client < ActiveRecord::Base
   validates :active, :inclusion => { :in => [true, false] }
   validates_inclusion_of :gender, :in => %w[Male Female], :message => "is not an option"
   validates_inclusion_of :marital_status, :in => %w[Single Married Separated Divorced Other], :message => "is not an option"
-  validates_inclusion_of :methnicity, :in => %w['White' 'Black' 'Asian' 'Hispanic' 'Native American' 'Middle Eastern' 'Indian' 'Other'], :message => "is not an option"
+  validates_inclusion_of :ethnicity, :in => %w['White' 'Black' 'Asian' 'Hispanic' 'Native American' 'Middle Eastern' 'Indian' 'Other'], :message => "is not an option"
   validates_inclusion_of :state, :in => %w[PA OH WV], :message => "is not an option"
   validates_format_of :zip, :with => /^\d{5}$/, :message => "should be five digits long"
   validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only"
