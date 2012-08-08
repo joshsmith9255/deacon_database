@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720005544) do
+ActiveRecord::Schema.define(:version => 20120808083041) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "deacon_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20120720005544) do
     t.string   "address"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
+    t.string   "zip"
     t.string   "phone"
     t.boolean  "gov_assistance"
     t.boolean  "is_employed"
