@@ -8,7 +8,7 @@ class Client < ActiveRecord::Base
   # has_many :interventions, :through => :assignments
 
   # Validations
-  validates_presence_of :first_name, :last_name, :gender, :address, :city, :state, :zip, :phone, :ethnicity
+  validates_presence_of :first_name, :last_name, :gender, :address, :city, :state, :zip, :phone, :ethnicity, :active
   #validates :active, :inclusion => { :in => [true, false] }
   validates_inclusion_of :gender, :in => %w[Male Female], :message => "is not an option"
   validates_inclusion_of :marital_status, :in => %w[Single Married Separated Divorced Other], :message => "is not an option"
@@ -30,17 +30,15 @@ class Client < ActiveRecord::Base
 
   # scope :by_marital_status, lambda { |status| where("marital_status = ?", status) }
 
-
-
-  #scope :by_ethnicity, lambda { |race| where("ethnicity = ?", race) }
+  # scope :by_ethnicity, lambda { |race| where("ethnicity = ?", race) }
 
   scope :employed, where('is_employed = ?', true)
   scope :unemployed, where('is_employed = ?', false)
 
   scope :veteran, where('is_veteran = ?', true)
 
-  scope :assigned, where('current_assignment != ?', nil)
-  scope :unassigned, where('current_assignment = ?', nil) 
+  # scope :assigned, where('current_assignment != ?', nil)
+  # scope :unassigned, where('current_assignment = ?', nil) 
 
 # Other methods
   def name

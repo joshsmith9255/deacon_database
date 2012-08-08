@@ -59,11 +59,11 @@ class ClientTest < ActiveSupport::TestCase
       should allow_value("101 North Dithridge Street").for(:address)
       should allow_value("5000 Forbes Avenue").for(:address)
   
-      # should_not allow_value(true).for(:address)
-      # should_not allow_value(101).for(:address)
-      # should_not allow_value(nil).for(:address)
+      should_not allow_value(true).for(:address)
+      should_not allow_value(101).for(:address)
+      should_not allow_value(nil).for(:address)
   
-      # tests for zip
+      # # tests for zip
       # should allow_value("15213").for(:zip)
   
       # should_not allow_value("bad").for(:zip)

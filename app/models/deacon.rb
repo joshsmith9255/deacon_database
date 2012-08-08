@@ -4,7 +4,7 @@ class Deacon < ActiveRecord::Base
   
   # Use built-in rails support for password protection
   has_secure_password
-  attr_accessible :password, :password_confirmation
+  #attr_accessible :password, :password_confirmation
 
   # Relationships
   has_many :assignments
