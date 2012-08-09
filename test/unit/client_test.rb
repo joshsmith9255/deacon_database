@@ -122,7 +122,7 @@ class ClientTest < ActiveSupport::TestCase
           @barnik = FactoryGirl.create(:client, :last_name => "Saha", :first_name => "Barnik", :active => false, :ethnicity => "Indian" )
           @ryan = FactoryGirl.create(:client, :last_name => "Black", :first_name => "Ryan", :phone => "412-867-5309", :ethnicity => "White", :gov_assistance => true )
           @joe = FactoryGirl.create(:client, :last_name => "Oak", :first_name => "Joseph", :ethnicity => "Asian", :is_employed => false )
-          @madeleine = FactoryGirl.create(:client, :last_name => "Clute", :first_name => "Madeleine", :gender => "Female", :ethnicity => "White" )
+          @madeleine = FactoryGirl.create(:client, :last_name => "Clute", :first_name => "Madeleine", :gender => "Female", :ethnicity => "White", :marital_status => "Married" )
           @jonathan = FactoryGirl.create(:client, :last_name => "Carreon", :first_name => "Jonathan", :is_veteran => true )
           @meg = FactoryGirl.create(:client, :last_name => "Smith", :first_name => "Megan", :ethnicity => "White", :gender => "Female", :is_employed => false)
         end
@@ -214,6 +214,26 @@ class ClientTest < ActiveSupport::TestCase
           assert_equal 1, Client.veteran.size
           assert_equal ["Carreon"], Client.veteran.alphabetical.map{|s| s.last_name}
         end
+
+        # test the scope 'unmarried'
+        should "shows six unmarried clients" do
+          assert_equal ["Black", "Carreon", "Oak", "Saha", "Smith", "Tabrizi"], Client.unmarried.alphabetical.map{|s| s.last_name}
+        end
+
+        # test the scope 'married'
+        should "shows one married client" do
+          assert_equal ["Clute"], Client.married.alphabetical.map{|s| s.last_name}
+        end
+
+        # test the scope 'is_white'
+        should "shows three white clients" do
+          assert_equal ["Black", "Clute", "Smith"], Client.is_white.alphabetical.map{|s| s.last_name}
+        end
+
+        # test the scope 'is_minority'
+        should "shows four minority clients" do
+          assert_equal [ "Carreon", "Oak", "Saha", "Tabrizi"], Client.is_minority.alphabetical.map{|s| s.last_name}
+        end 
     
         # test the method 'name' #DONE
         should "shows name as last, first name" do
@@ -223,7 +243,7 @@ class ClientTest < ActiveSupport::TestCase
         # test the method 'proper_name' #DONE
         should "shows proper name as first and last name" do
           assert_equal "Dan Tabrizi", @dan.proper_name
-        end 
+        end
     
   end
   

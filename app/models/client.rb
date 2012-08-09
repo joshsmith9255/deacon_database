@@ -9,7 +9,7 @@ class Client < ActiveRecord::Base
 
   # Validations
   validates_presence_of :first_name, :last_name, :gender, :address, :city, :state, :zip, :phone, :ethnicity
-  #validates :active, :inclusion => { :in => [true, false] }
+  validates :active, :inclusion => { :in => [true, false] }
   validates_inclusion_of :gender, :in => %w[Male Female], :message => "is not an option"
   validates_inclusion_of :marital_status, :in => %w[Single Married Separated Divorced Other], :message => "is not an option"
   validates_inclusion_of :ethnicity, :in => %w[White Black Asian Hispanic Native_American Middle_Eastern Indian Other], :message => "is not an option"
@@ -28,9 +28,11 @@ class Client < ActiveRecord::Base
   scope :male, where('gender = ?', 'Male')
   scope :female, where('gender = ?', 'Female')
 
-  # scope :by_marital_status, lambda { |status| where("marital_status = ?", status) }
+  scope :married, where('marital_status = ?', 'Married')
+  scope :unmarried, where('marital_status != ?', 'Married')
 
-  # scope :by_ethnicity, lambda { |race| where("ethnicity = ?", race) }
+  scope :is_white, where('ethnicity = ?', 'White')
+  scope :is_minority, where('ethnicity != ?', 'White')
 
   scope :employed, where('is_employed = ?', true)
   scope :unemployed, where('is_employed = ?', false)
@@ -66,27 +68,6 @@ class Client < ActiveRecord::Base
     unassigned_clients = Client.select{|a| a.current_assignment == nil}
     unassigned_clients
   end
-
-  def married
-    married_clients = Client.select{|a| a.marital_status == "Married"}
-    married_clients
-  end
-
-  def unmarried
-    unmarried_clients = Client.select{|a| a.marital_status != "Married"}
-    unmarried_clients
-  end
-
-  def majority
-    majority_clients = Client.select{|a| a.ethnicity == "White"}
-    majority_clients
-  end
-
-  def minority
-    minority_clients = Client.select{|a| a.ethnicity != "White"}
-    minority_clients
-  end
-
 
   # Misc Constants
   GENDER_LIST = [['Male', 'Male'],['Female', 'Female']]
