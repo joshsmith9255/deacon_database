@@ -12,6 +12,7 @@ gem 'cancan'
 gem 'validates_timeliness'
 gem 'geokit'
 gem 'will_paginate'
+gem 'simplecov'
 
 # Gems used only for assets and not required
 # in production environments by default.
