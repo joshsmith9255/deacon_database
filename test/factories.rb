@@ -31,6 +31,6 @@ FactoryGirl.define do
     association :deacon
     start_date 1.year.ago.to_date
     end_date 1.month.ago.to_date
-    exit notes "Swell guy, glad to help him out."
+    exit_notes "Swell guy, glad to help him out."
   end
 end

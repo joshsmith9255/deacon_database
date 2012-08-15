@@ -116,7 +116,7 @@ class ClientTest < ActiveSupport::TestCase
   
   # Establish context
   # Testing other methods with a context
-  context "Creating seven clients" do
+  context "Creating seven clients, one deacon, and three assignments" do
     setup do 
           @dan = FactoryGirl.create(:client)
           @barnik = FactoryGirl.create(:client, :last_name => "Saha", :first_name => "Barnik", :active => false, :ethnicity => "Indian" )
@@ -125,6 +125,13 @@ class ClientTest < ActiveSupport::TestCase
           @madeleine = FactoryGirl.create(:client, :last_name => "Clute", :first_name => "Madeleine", :gender => "Female", :ethnicity => "White", :marital_status => "Married" )
           @jonathan = FactoryGirl.create(:client, :last_name => "Carreon", :first_name => "Jonathan", :is_veteran => true )
           @meg = FactoryGirl.create(:client, :last_name => "Smith", :first_name => "Megan", :ethnicity => "White", :gender => "Female", :is_employed => false)
+
+          @carl = FactoryGirl.create(:deacon)
+          @steph = FactoryGirl.create(:deacon, :first_name => "Steph", :last_name => "Seybert", :email => "sseybert@gmail.com", :gender => "Female", :phone => "412-268-2323")
+
+          @dan_assignment = FactoryGirl.create(:assignment, :client => @dan, :deacon => @carl)
+          @ryan_assignment = FactoryGirl.create(:assignment, :client => @ryan, :deacon => @carl, :end_date => nil)
+          @madeleine_assignment = FactoryGirl.create(:assignment, :client => @madeleine, :deacon => @steph, :end_date => nil)
         end
         
         # and provide a teardown method as well
@@ -244,6 +251,20 @@ class ClientTest < ActiveSupport::TestCase
         should "shows proper name as first and last name" do
           assert_equal "Dan Tabrizi", @dan.proper_name
         end
+
+        # Special Assignment Method Testing
+
+        # test the method 'current_assignment'
+        should "shows clients' current assignments" do
+          assert_equal "Glazer", @ryan.current_assignment.deacon.last_name
+          assert_equal "Seybert", @madeleine.current_assignment.deacon.last_name
+          assert_equal nil, @dan.current_assignment
+        end
+
+        # # test the method 'assigned'
+        # should "shows two assigned clients" do
+        #   assert_equal ["Black", "Clute"], Client.assigned.alphabetical.map{|s| s.last_name}
+        # end
     
   end
   

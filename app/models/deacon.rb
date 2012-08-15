@@ -3,7 +3,7 @@ class Deacon < ActiveRecord::Base
   before_save :reformat_phone
   
   # Use built-in rails support for password protection
-  has_secure_password
+  # has_secure_password
   #attr_accessible :password, :password_confirmation
 
   # Relationships
@@ -12,7 +12,8 @@ class Deacon < ActiveRecord::Base
   has_many :interventions, :through => :assignments
   
   # Validations
-  validates_presence_of :first_name, :last_name, :active
+  validates_presence_of :first_name, :last_name, :phone, :role, :gender, :email, :password
+  validates :active, :inclusion => { :in => [true, false] }
   validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => false
   validates_inclusion_of :role, :in => %w[Admin Deacon], :message => "is not an option"
   validates_inclusion_of :gender, :in => %w[Male Female], :message => "is not an option"

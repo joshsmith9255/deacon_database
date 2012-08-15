@@ -59,15 +59,15 @@ class Client < ActiveRecord::Base
     curr_assignment.first   # return as a single object, not an array
   end
 
-  def assigned
-    assigned_clients = Client.select{|a| a.current_assignment != nil}
-    assigned_clients
-  end
+  # def assigned
+  #   assigned_clients = Client.select{|a| a.current_assignment != nil}
+  #   return assigned_clients
+  # end
 
-  def unassigned
-    unassigned_clients = Client.select{|a| a.current_assignment == nil}
-    unassigned_clients
-  end
+  # def unassigned
+  #   unassigned_clients = Client.select{|a| a.current_assignment == nil}
+  #   unassigned_clients
+  # end
 
   # Misc Constants
   GENDER_LIST = [['Male', 'Male'],['Female', 'Female']]
