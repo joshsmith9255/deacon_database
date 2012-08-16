@@ -60,13 +60,17 @@ class Client < ActiveRecord::Base
   end
 
   # def assigned
-  #   assigned_clients = Client.select{|a| a.current_assignment != nil}
-  #   return assigned_clients
+  #   all_assigned_clients = Client.select{|a| a.current_assignment != nil}
+  #   all_assigned_clients
   # end
 
+  def self.assigned
+    all_assigned_clients = Client.alphabetical.map{|s| s.id unless s.current_assignment = nil}
+  end
+
   # def unassigned
-  #   unassigned_clients = Client.select{|a| a.current_assignment == nil}
-  #   unassigned_clients
+  #   all_unassigned_clients = Client.select{|a| a.current_assignment == nil}
+  #   all_unassigned_clients
   # end
 
   # Misc Constants

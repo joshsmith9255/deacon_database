@@ -12,7 +12,7 @@ class Deacon < ActiveRecord::Base
   has_many :interventions, :through => :assignments
   
   # Validations
-  validates_presence_of :first_name, :last_name, :phone, :role, :gender, :email, :password
+  validates_presence_of :first_name, :last_name, :phone, :role, :gender, :email
   validates :active, :inclusion => { :in => [true, false] }
   validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => false
   validates_inclusion_of :role, :in => %w[Admin Deacon], :message => "is not an option"
@@ -51,15 +51,16 @@ class Deacon < ActiveRecord::Base
     curr_assignment.first   # return as a single object, not an array
   end
 
-  def assigned
-    assigned_deacons = Deacon.select{|a| a.current_assignment != nil}
-    assigned_deacons
-  end
+  # def assigned
+  #   all_assigned_deacons = Deacon.select{|a| a.current_assignment != nil}
+  #   all_active_employees = Employee.active.all.map{|e| e.id}
+  #   all_assigned_deacons
+  # end
 
-  def unassigned
-    unassigned_deacons = Deacon.select{|a| a.current_assignment == nil}
-    unassigned_deacons
-  end
+  # def unassigned
+  #   all_unassigned_deacons = Deacon.select{|a| a.current_assignment == nil}
+  #   all_unassigned_deacons
+  # end
   
   # Misc Constants
   ROLE_LIST = [['Deacon', 'Deacon'],['Administrator', 'Admin']]

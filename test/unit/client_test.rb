@@ -35,7 +35,7 @@ class ClientTest < ActiveSupport::TestCase
       should allow_value("Native_American").for(:ethnicity)
       should allow_value("White").for(:ethnicity)
 
-      # FIX ME
+      
       should_not allow_value(nil).for(:ethnicity)
       should_not allow_value(1).for(:ethnicity)
       should_not allow_value(true).for(:ethnicity)
@@ -144,6 +144,13 @@ class ClientTest < ActiveSupport::TestCase
           @madeleine.destroy
           @jonathan.destroy
           @meg.destroy
+
+          @carl.destroy
+          @steph.destroy
+
+          @dan_assignment.destroy
+          @ryan_assignment.destroy
+          @madeleine_assignment.destroy
         end
     
       
@@ -242,12 +249,12 @@ class ClientTest < ActiveSupport::TestCase
           assert_equal [ "Carreon", "Oak", "Saha", "Tabrizi"], Client.is_minority.alphabetical.map{|s| s.last_name}
         end 
     
-        # test the method 'name' #DONE
+        # test the method 'name'
         should "shows name as last, first name" do
           assert_equal "Tabrizi, Dan", @dan.name
         end   
       
-        # test the method 'proper_name' #DONE
+        # test the method 'proper_name'
         should "shows proper name as first and last name" do
           assert_equal "Dan Tabrizi", @dan.proper_name
         end
@@ -261,10 +268,10 @@ class ClientTest < ActiveSupport::TestCase
           assert_equal nil, @dan.current_assignment
         end
 
-        # # test the method 'assigned'
-        # should "shows two assigned clients" do
-        #   assert_equal ["Black", "Clute"], Client.assigned.alphabetical.map{|s| s.last_name}
-        # end
+        # test the method 'assigned'
+        should "shows two assigned clients" do
+          assert_equal ["Black", "Carreon", "Clute", "Oak", "Saha", "Smith", "Tabrizi"], Client.assigned
+        end
     
   end
   
