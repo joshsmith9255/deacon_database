@@ -39,9 +39,6 @@ class Client < ActiveRecord::Base
 
   scope :veteran, where('is_veteran = ?', true)
 
-  # scope :assigned, where('current_assignment != ?', nil)
-  # scope :unassigned, where('current_assignment = ?', nil) 
-
 # Other methods
   def name
     "#{last_name}, #{first_name}"
@@ -59,19 +56,31 @@ class Client < ActiveRecord::Base
     curr_assignment.first   # return as a single object, not an array
   end
 
-  # def assigned
-  #   all_assigned_clients = Client.select{|a| a.current_assignment != nil}
-  #   all_assigned_clients
-  # end
-
   def self.assigned
-    all_assigned_clients = Client.alphabetical.map{|s| s.id unless s.current_assignment = nil}
+    all_clients = Client.alphabetical
+    all_assigned_clients = []
+
+    all_clients.each do |i| 
+      if i.current_assignment != nil
+        all_assigned_clients << i
+      end
+    end
+
+    all_assigned_clients
   end
 
-  # def unassigned
-  #   all_unassigned_clients = Client.select{|a| a.current_assignment == nil}
-  #   all_unassigned_clients
-  # end
+  def self.unassigned
+    all_clients = Client.alphabetical
+    all_unassigned_clients = []
+
+    all_clients.each do |i| 
+      if i.current_assignment == nil
+        all_unassigned_clients << i
+      end
+    end
+
+    all_unassigned_clients
+  end
 
   # Misc Constants
   GENDER_LIST = [['Male', 'Male'],['Female', 'Female']]
