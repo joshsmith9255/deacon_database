@@ -276,6 +276,7 @@ class ClientTest < ActiveSupport::TestCase
         # test the method 'unassigned'
         should "shows five unassigned clients" do
           assert_equal [ "Carreon", "Oak", "Saha", "Smith", "Tabrizi"], Client.unassigned.map{|s| s.last_name}
+          assert_equal [ "Carreon", "Oak", "Smith", "Tabrizi"], Client.active.unassigned.map{|s| s.last_name}
         end
     
   end

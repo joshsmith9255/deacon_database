@@ -164,5 +164,16 @@ class DeaconTest < ActiveSupport::TestCase
 	  assert_equal "4122682323", @steph.phone
 	end
 
+    # test the method 'assigned'
+    should "shows one assigned deacon" do
+      assert_equal ["Seybert"], Deacon.assigned.map{|s| s.last_name}
+    end
+
+    # test the method 'unassigned'
+    should "shows two unassigned deacons" do
+      assert_equal [ "Glazer", "Lessard", "Staltari"], Deacon.unassigned.map{|s| s.last_name}
+      assert_equal [ "Glazer", "Staltari"], Deacon.active.unassigned.map{|s| s.last_name}
+    end
+
   end
 end

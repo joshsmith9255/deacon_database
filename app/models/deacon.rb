@@ -51,16 +51,31 @@ class Deacon < ActiveRecord::Base
     curr_assignment.first   # return as a single object, not an array
   end
 
-  # def assigned
-  #   all_assigned_deacons = Deacon.select{|a| a.current_assignment != nil}
-  #   all_active_employees = Employee.active.all.map{|e| e.id}
-  #   all_assigned_deacons
-  # end
+  def self.assigned
+    all_deacons = Deacon.alphabetical
+    all_assigned_deacons = []
 
-  # def unassigned
-  #   all_unassigned_deacons = Deacon.select{|a| a.current_assignment == nil}
-  #   all_unassigned_deacons
-  # end
+    all_deacons.each do |i| 
+      if i.current_assignment != nil
+        all_assigned_deacons << i
+      end
+    end
+
+    all_assigned_deacons
+  end
+
+  def self.unassigned
+    all_deacons = Deacon.alphabetical
+    all_unassigned_deacons = []
+
+    all_deacons.each do |i| 
+      if i.current_assignment == nil
+        all_unassigned_deacons << i
+      end
+    end
+
+    all_unassigned_deacons
+  end
   
   # Misc Constants
   ROLE_LIST = [['Deacon', 'Deacon'],['Administrator', 'Admin']]
