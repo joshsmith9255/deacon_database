@@ -14,13 +14,13 @@
 				<td>
 					<p>
 					  <b>Name:</b><br>
-					  <%= f.input :last_name %>
-					  <%= f.input :first_name %>
-					  <br>
+					  <%= f.input :last_name, :label => "Last Name" %>
 					</p>
 					<p>
-						<%= f.input :phone %>
-						<br>
+					  <%= f.input :first_name, :label => "First Name" %><br>
+					</p>
+					<p>
+						<%= f.input :phone, :label => "Phone Number" %><br>
 					</p>
 				</td>
 				<td>
@@ -30,10 +30,10 @@
 				</td>
 				<td>
 					<p>
-						<%= f.input :email %>
+						<%= f.input :email, :label => "Email Address" %>
 					</p>
 					<p>
-						<%= f.input :password %><br>
+						<%= f.input :password_digest, :label => "* Password" %><br>
 					</p>
 					<p>
 						<%= f.input :role, :collection => Deacon::ROLE_LIST %><br>

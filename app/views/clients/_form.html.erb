@@ -23,12 +23,12 @@
 					  	<%= f.input :address %>
 						<%= f.input :city %>
 						<%= f.input :state, :collection => Client::STATES_LIST %>
-						<%= f.input :zip %>
+						<%= f.input :zip, :label => "ZIP Code" %>
 						<br>
 					</p>
 
 					<p>
-						<%= f.input :phone %>
+						<%= f.input :phone, :label => "Phone Number" %>
 						<br>
 					</p>
 				</td>
@@ -36,28 +36,29 @@
 					<p>
 						<%= f.input :gender, :collection => Client::GENDER_LIST %><br>
 						<%= f.input :ethnicity, :collection => Client::RACE_LIST %><br>
-						<%= f.input :marital_status, :collection => Client::MARITAL_LIST %><br>
+						<%= f.input :marital_status, :collection => Client::MARITAL_LIST, :label => "Marital Status" %><br>
 					</p>
 				</td>
 				<td>
 					<p>
-						<b>Currently employed:</b><br>
-						<%= f.input :is_employed %>
+						<b>Check the following boxes if applicable.</b><br><br>
+						<b>Is the client...</b><br>
 					</p>
 					<p>
-						<b>Receiving government assistance:</b><br>
-						<%= f.input :gov_assistance %>
+						<%= f.input :is_employed, :label => "...employed?" %>
 					</p>
 					<p>
-						<b>Veteran:</b><br>
-						<%= f.input :is_veteran %>
+						<%= f.input :gov_assistance, :label => "...receiving government assistance?" %>
+					</p>
+					<p>
+						<%= f.input :is_veteran, :label => "...a veteran?" %>
 					</p>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-		<%= f.input :active unless controller.action_name.capitalize != 'Edit' %>
+	<%= f.input :active unless controller.action_name.capitalize != "Edit" %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
